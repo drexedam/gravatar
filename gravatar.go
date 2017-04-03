@@ -109,6 +109,12 @@ func (g *Gravatar) Rating(rating Rating) *Gravatar {
 	return g
 }
 
+// ForceDefault sets if the default avatar should be forced o be returned
+func (g *Gravatar) ForceDefault(force bool) *Gravatar {
+	g.forceDefault = force
+	return g
+}
+
 // Profiles fetches and parses the profile data
 func (g *Gravatar) Profiles() (*Profiles, error) {
 	client := &http.Client{Timeout: 10 * time.Second}
