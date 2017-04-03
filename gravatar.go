@@ -4,12 +4,12 @@ import (
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
 	"time"
-	"io"
 )
 
 // Gravatar is a struct for configuring and generating a
@@ -118,7 +118,7 @@ func (g *Gravatar) Profiles() (*Profiles, error) {
 	}
 
 	defer close(r.Body)
-	
+
 	profiles := &Profiles{}
 	err = json.NewDecoder(r.Body).Decode(profiles)
 	return profiles, err
