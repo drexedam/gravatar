@@ -41,7 +41,7 @@ func (g *Gravatar) AvatarURL() string {
 	url := "https://www.gravatar.com/avatar/" + g.hash
 
 	if g.forceDefault {
-		return g.addParameter(url, "f", "y")
+		url = g.addParameter(url, "f", "y")
 	}
 
 	if g.defaultURL != "" {
